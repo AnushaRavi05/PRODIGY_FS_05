@@ -2,8 +2,6 @@
 
 > A modern social networking platform with built-in **AI-driven content moderation** and **context-based authentication** for enhanced security and user experience.
 
----
-
 ## 📚 Table of Contents
 
 - [📌 Project Overview](#-project-overview)
