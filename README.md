@@ -2,20 +2,12 @@
 
 A social networking platform with automated content moderation and context-based authentication system.
 
-[Watch Demo](https://youtu.be/Tmncayg7FeU)
-
-![UI-community](https://raw.githubusercontent.com/nz-m/SocialEcho/main/resources/UI-community.png)
-
 ## Table of Contents
 
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Technologies](#technologies)
-- [Schema Diagram](#schema-diagram)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [License](#license)
-
+  
 ## Project Overview
 
 The project is a social networking platform built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It incorporates two major features: an automated content moderation system and context-based authentication. These features are accompanied by common functionalities found in social media applications, such as profile creation, post creation and sharing, liking and commenting on posts, and following/unfollowing users.
@@ -83,86 +75,6 @@ There are three distinct user roles within the system:
 - Flask
 - Hugging Face Transformers
 
-
-## Schema Diagram
-
-![Schema Diagram](https://raw.githubusercontent.com/nz-m/SocialEcho/main/resources/Schema-Diagram.png)
-
-
-
-## Getting Started
-
-### Prerequisites
-
-Before running the application, make sure you have the following installed:
-
-- Node.js
-- MongoDB or MongoDB Atlas account
-
-### Installation
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/nz-m/SocialEcho.git
-```
-2. Go to the project directory and install dependencies for both the client and server
-
-```bash
-cd client
-npm install
-```
-
-```bash
-cd server
-npm install
-```
-
-3. Create a `.env` file in both the `client` and `server` directories and add the environment variables as shown in the `.env.example` files.
-4. Start the server
-
-```bash
-cd server
-npm start
-```
-
-5. Start the client
-
-```bash
-cd client
-npm start
-```
-
-
-### Configuration
-
-Run the `admin_tool.sh` script from the server directory with permissions for executing the script. This script is used for configuring the admin account, creating the initial communities, and other settings.
-```bash
-./admin_tool.sh
-``` 
-
-#### `.env` Variables
-
-For email service of context-based authentication, the following variables are required:
-
-```bash
-EMAIL=
-PASSWORD=
-EMAIL_SERVICE=
-```
-
-For content moderation, you need the `PERSPECTIVE_API_KEY` and either the `INTERFACE_API_KEY` or `TEXTRAZOR_API_KEY`. Visit the following links to obtain the API keys:
-
-- [Perspective API](https://developers.perspectiveapi.com/s/docs-get-started)
-- [TextRazor API](https://www.textrazor.com/)
-- [Hugging Face Interface API](https://huggingface.co/facebook/bart-large-mnli)
-
-If you prefer, the Flask server can be run locally as an alternative to using the Hugging Face Interface API or TextRazor API. Refer to the `classifier_server` directory for more information.
-
-
->**Note:** Configuration for context-based authentication and content moderation features are **_not mandatory_** to run the application. However, these features will not be available if the configuration is not provided.
-
-
 ## Usage
 
 ### Admin
@@ -173,10 +85,4 @@ The admin dashboard can be accessed at the `/admin` route. Use the `admin_tool.s
 
 Moderators have specific email domain (`@mod.socialecho.com`). When registering with an email from this domain, the user is automatically assigned the moderator role. Moderators can be assigned to different communities from the admin dashboard.
 
-#### Demo
-https://youtu.be/Tmncayg7FeU
-
-## License
-
-This project is licensed under the [MIT License](https://github.com/nz-m/SocialEcho/blob/main/LICENSE).
 
