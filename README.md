@@ -1,88 +1,134 @@
-# SocialEcho
+# 🌐 SocialEcho
 
-A social networking platform with automated content moderation and context-based authentication system.
+> A modern social networking platform with built-in **AI-driven content moderation** and **context-based authentication** for enhanced security and user experience.
 
-## Table of Contents
+---
 
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Technologies](#technologies)
-  
-## Project Overview
+## 📚 Table of Contents
 
-The project is a social networking platform built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It incorporates two major features: an automated content moderation system and context-based authentication. These features are accompanied by common functionalities found in social media applications, such as profile creation, post creation and sharing, liking and commenting on posts, and following/unfollowing users.
+- [📌 Project Overview](#-project-overview)
+- [🚀 Key Features](#-key-features)
+- [🛠️ Technologies Used](#-technologies-used)
+- [🧪 Usage Guide](#-usage-guide)
 
-### Automated Content Moderation
+---
 
-The platform's automated content moderation system utilizes various NLP (Natural Language Processing) APIs. These APIs include:
+## 📌 Project Overview
 
-- Perspective API: Used for filtering spam, profanity, toxicity, harassment etc.
-- TextRazor API: Integrated for content categorization.
-- Hugging Face Interface API: Utilized with BART Large MNLI for content categorization.
+**SocialEcho** is a full-stack social media application developed using the **MERN stack** (MongoDB, Express.js, React.js, and Node.js). The platform provides essential features of a modern social network, along with:
 
-A Flask application has been developed to provide similar functionality as the Hugging Face Interface API's classifier. The Flask app utilizes the BART Large MNLI model. It operates as a zero-shot classification pipeline with a PyTorch framework.
+- 🔐 **Context-aware login authentication**
+- 🧠 **Automated content moderation using NLP APIs**
+- 🛡️ **Role-based access control** for admins, moderators, and users
 
-The system allows flexibility in choosing different services for API usage or disabling them without affecting overall functionality by using a common interface for interacting with the APIs.
+### 🔐 Context-Based Authentication
 
-When a user posts content, it undergoes a thorough filtering process to ensure compliance with the community guidelines. Additionally, users have the ability to report posts that they find inappropriate, which triggers a manual review process.
+To strengthen account security, the platform tracks the user's **device information**, **IP address**, and **geographic location**. This data is:
 
-### Context-Based Authentication
+- Encrypted using **AES**
+- Stored securely in the database
+- Used to detect and respond to **suspicious login activity**
 
-The platform implements context-based authentication to enhance user account security. It takes into consideration user location, IP address, and device information for authentication purposes. Users can conveniently manage their devices directly from the platform. To ensure data privacy, this information is encrypted using the AES algorithm and securely stored in the database.
+When a suspicious login occurs:
+- The user is immediately notified via email
+- Verification is required to continue access
 
-In case of a suspicious login attempt, users are promptly notified via email and are required to confirm their identity to protect against unauthorized access.
+Users can also **view and manage** their trusted devices through the platform.
 
-### User Roles
+### 🧠 Automated Content Moderation
 
-There are three distinct user roles within the system:
+All user-generated content is filtered using **Natural Language Processing (NLP)** APIs to ensure it complies with community guidelines.
 
-1. Admin: The admin role manages the overall system, including moderator management, community management, content moderation, monitoring user activity, and more.
-2. Moderators: Moderators manage communities, manually review reported posts, and perform other moderation-related tasks.
-3. General Users: General users have the ability to make posts, like comments, and perform other actions within the platform.
+Integrated APIs include:
+
+| API                        | Purpose                               |
+|----------------------------|----------------------------------------|
+| 🧠 **Perspective API**     | Detects spam, toxicity, profanity, etc. |
+| 🧠 **TextRazor API**       | Categorizes and analyzes content       |
+| 🧠 **Hugging Face API**    | BART-Large MNLI model for classification |
+
+Additionally, a **Flask-based API** replicates Hugging Face behavior using **PyTorch** and BART for zero-shot text classification.
+
+> The system supports dynamic switching between APIs or disabling moderation services as needed—without affecting the core application.
+
+Users may also **report content**, triggering a **manual moderation process** by assigned moderators.
+
+### 👥 User Roles
+
+1. **Admin**  
+   - System-wide privileges: manage users, communities, and moderation settings
+2. **Moderator**  
+   - Community-level permissions: review and manage reported content
+3. **General User**  
+   - Standard access: create content, interact with others, follow/unfollow
+
+---
+
+## 🚀 Key Features
+
+✅ JWT-based Authentication and Authorization  
+✅ Full User Profile Management  
+✅ Post Creation, Commenting, and Reactions  
+✅ Follow/Unfollow Functionality  
+✅ AI-Powered Content Moderation  
+✅ Device and Login Context Management  
+✅ Admin and Moderator Dashboards  
+✅ Email Alerts for Suspicious Logins  
+✅ Moderator Auto-Assignment by Email Domain  
+✅ Flask API for Custom Text Classification  
+✅ Azure Blob Storage for File Uploads
+
+---
+
+## 🛠️ Technologies Used
+
+**Frontend:**
+- ⚛️ React.js
+- 📦 Redux
+- 🎨 Tailwind CSS
+
+**Backend:**
+- 🧩 Node.js + Express.js
+- 🛢️ MongoDB
+- 🔐 Passport.js (JWT)
+- 🛡️ Crypto-js
+- 📧 Nodemailer
+
+**APIs and Services:**
+- 🔍 Perspective API
+- 🧠 TextRazor API
+- 🤖 Hugging Face Transformers
+- 🐍 Flask (BART model with PyTorch)
+- ☁️ Azure Blob Storage
 
 
+### 👑 Admin
 
-## Features
+- Visit: `http://localhost:3000/admin`
+- Use `admin_tool.sh` to set up the first admin
+- Admins can:
+  - Manage communities
+  - Assign moderators
+  - Enable/disable moderation APIs
+  - Oversee platform activity
 
-- [x] User authentication and authorization (JWT)
-- [x] User profile creation and management
-- [x] Post creation and management
-- [x] Commenting on posts
-- [x] Liking posts and comments
-- [x] Following/unfollowing users
-- [x] Reporting posts
-- [x] Content moderation
-- [x] Context-based authentication
-- [x] Device management
-- [x] Admin dashboard
-- [x] Moderator dashboard
-- [x] Email notifications
+### 🛡️ Moderator
 
+- Use an email ending in `@mod.socialecho.com` to register
+- Moderators are automatically assigned based on email domain
+- From the dashboard, moderators can:
+  - Review flagged posts
+  - Moderate community discussions
 
-## Technologies
+---
 
-- React.js
-- Redux
-- Node.js
-- Express.js
-- MongoDB
-- Tailwind CSS
-- JWT Authentication
-- Passport.js
-- Nodemailer
-- Crypto-js
-- Azure Blob Storage
-- Flask
-- Hugging Face Transformers
+### 🙋 General Users
 
-## Usage
+- Can register and log in like standard social platforms
+- Can:
+  - Create and share posts
+  - Like and comment on content
+  - Follow/unfollow other users
+  - Report content violating guidelines
 
-### Admin
-
-The admin dashboard can be accessed at the `/admin` route. Use the `admin_tool.sh` script to configure the admin account. The admin account can be used to manage moderators, communities, and perform other admin-related tasks. You can also enable/disable or switch API services using the admin dashboard.
-
-### Moderator
-
-Moderators have specific email domain (`@mod.socialecho.com`). When registering with an email from this domain, the user is automatically assigned the moderator role. Moderators can be assigned to different communities from the admin dashboard.
-
-
+🔗 **Connect, Share, and Moderate Smarter — with SocialEcho**
