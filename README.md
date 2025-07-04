@@ -9,9 +9,6 @@
 - [📌 Project Overview](#-project-overview)
 - [🚀 Key Features](#-key-features)
 - [🛠️ Technologies Used](#-technologies-used)
-- [🧪 Usage Guide](#-usage-guide)
-
----
 
 ## 📌 Project Overview
 
